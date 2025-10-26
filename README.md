@@ -1,51 +1,88 @@
 # baidoxe
-# Parking Lot
+# 🚗 HỆ THỐNG QUẢN LÝ NHÀ XE TỰ ĐỘNG (Parking Lot Project)
 
-Dự án **Parking Lot** là hệ thống điều khiển bãi đỗ xe nhúng với vi điều khiển STM32 (hoặc tương tự), sử dụng các module như cảm biến, LCD, LED RGB, RFID, servo,... để quản lý trạng thái bãi đỗ xe.
+## 👥 Thành viên thực hiện
 
-## Mục lục
+| Họ và tên | Phụ trách |
+|------------|------------|
+| **Huy** | Code main, Cảm biến IR, RFID, LED 7 đoạn, Quay video demo |
+| **Nhất Anh** | Làm mô hình, LCD, LED RGB, Viết README, hoàn thiện báo cáo |
 
-- [Giới thiệu](#giới-thiệu)  
-- [Tính năng](#tính-năng)  
-- [Yêu cầu phần cứng](#yêu-cầu-phần-cứng)  
-- [Cấu trúc thư mục](#cấu-trúc-thư-mục)  
-- [Cài đặt & Build](#cài-đặt--build)  
-- [Sử dụng](#sử-dụng)  
-- [Đóng góp](#đóng-góp)  
-- [Bản quyền](#bản-quyền)
+---
 
-## Giới thiệu
+## 🧩 Giới thiệu
 
-Hệ thống này mô phỏng / điều khiển bãi đỗ xe:
+Dự án **Nhà xe tự động (Parking Lot)** là hệ thống mô phỏng quản lý bãi đỗ xe thông minh, được thực hiện bằng **vi điều khiển STM32** và các module ngoại vi thông dụng như **RFID, cảm biến hồng ngoại (IR), LCD, LED RGB, LED 7 đoạn, Servo**, v.v.
 
-- Quản lý trạng thái vị trí đỗ (có / không có xe)  
-- Hiển thị thông tin lên màn hình LCD  
-- Điều khiển LED RGB để báo trạng thái (ví dụ “đầy”, “còn trống”, “cảnh báo”)  
-- Quay servo nếu cần cơ cấu vật lý như barie  
-- Xác thực / checkin bằng RFID  
+Mục tiêu của hệ thống là giúp **tự động hóa việc ra vào và quản lý chỗ trống** trong nhà xe, đồng thời cung cấp **thông tin trực quan** cho người dùng và người quản lý.
 
-Tùy mục đích: bạn có thể dùng dự án này để làm bài tập môn nhúng, prototype hệ thống bãi đỗ xe tự động, hoặc demo IoT.
+---
 
-## Tính năng
+## 💡 Chức năng tổng quát
 
-- Khởi tạo hệ thống (cấu hình GPIO, timer, ngoại vi)  
-- Đọc trạng thái từ cảm biến / mạch GPIO  
-- Điều khiển LED RGB và LED 7-segment  
-- Điều khiển servo (barie) để đóng / mở bãi đỗ  
-- Sử dụng RFID để kiểm soát xe ra / vào  
-- Hiển thị thông tin lên LCD (có thể là số xe, trạng thái bãi, thông báo lỗi)
+### 🔶 1. Đèn báo hiệu tình trạng bãi xe
 
-## Yêu cầu phần cứng
+- **Xanh lá:** còn **3–4 chỗ trống**  
+- **Vàng:** còn **1–2 chỗ trống**  
+- **Đỏ:** **đầy (0 chỗ trống)**  
 
-- Vi điều khiển STM32 (hoặc MCU tương tự)  
-- Module LCD (tùy model)  
-- LED RGB  
-- LED 7-segment  
-- Servo  
-- Module RFID  
-- Nguồn + dây kết nối  
+💡 Khi người lái xe đi gần đến khu gửi xe, họ có thể **quan sát đèn thông báo** để biết trước tình trạng bãi xe mà không cần phải đi vào.
 
-Ngoài ra: dụng cụ nạp (ST-Link, SWD, v.v.), PC để biên dịch.
+---
 
-## Cấu trúc thư mục
+### 🅿️ 2. Cổng ra/vào & Màn hình LCD
+
+- **LCD** hiển thị:
+  - Số lượng **xe đang có trong bãi**  
+  - Số lượng **chỗ trống còn lại**  
+  - Trạng thái **mở / đóng cửa**  
+  - **Thời gian đóng cửa** nếu bãi xe đầy  
+
+🔐 Khi bãi xe đã đầy, **hệ thống sẽ tự động đóng cửa và hiển thị thông báo “Đầy chỗ”**.
+
+---
+
+### 🔁 3. Cảm biến IR và LED 7 đoạn
+
+- Có **2 cảm biến IR** được đặt tại cổng ra/vào:
+  - Khi xe **đi vào**, **LED 7 đoạn tăng** giá trị hiển thị.
+  - Khi xe **đi ra**, **LED 7 đoạn giảm** giá trị hiển thị.
+- Giá trị hiển thị trên **LED 7 đoạn** thể hiện **tổng số xe đang có trong nhà xe**, giúp **bảo vệ** theo dõi dễ dàng hơn.
+
+---
+
+### 🪪 4. Quét thẻ RFID
+
+- Mỗi xe được cấp **thẻ RFID** riêng.  
+- Xe **chỉ được ra/vào** khi quét **đúng thẻ hợp lệ**.  
+- Hệ thống giúp **kiểm soát an ninh** và **ngăn chặn ra vào trái phép**.
+
+---
+
+## 🚀 Hướng phát triển thêm
+
+1. **Đồng hồ thời gian thực (RTC):**  
+   - Ghi lại **thời gian vào / ra** của từng xe để tra cứu khi cần thiết.  
+   - Hỗ trợ **thống kê thời gian gửi xe** hoặc xử lý các trường hợp bất thường.
+
+2. **Định vị vị trí chỗ đỗ xe:**  
+   - Gợi ý **chỗ trống khả dụng** cho người dùng (đặc biệt khi bãi có ít chỗ).  
+   - Có thể mở rộng lên **mô hình hiển thị bản đồ bãi xe nhỏ**.
+
+---
+
+## ⚙️ Thành phần phần cứng chính
+
+- Vi điều khiển **STM32F103C8T6 (Bluepill)**  
+- Module **RFID RC522**  
+- Cảm biến **IR (Infrared Sensor)**  
+- Màn hình **LCD 16x2 / 20x4**  
+- **LED RGB** (báo hiệu tình trạng bãi xe)  
+- **LED 7 đoạn** (hiển thị số xe hiện có)  
+- **Servo** (điều khiển barie cổng)  
+
+---
+
+## 🧱 Cấu trúc thư mục (tham khảo)
+
 
