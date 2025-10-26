@@ -81,8 +81,7 @@ Mục tiêu của hệ thống là giúp **tự động hóa việc ra vào và 
 - **LED 7 đoạn** (hiển thị số xe hiện có)  
 - **Servo** (điều khiển barie cổng)  
 
----
 
-## 🧱 Cấu trúc thư mục (tham khảo)
+
 
 
