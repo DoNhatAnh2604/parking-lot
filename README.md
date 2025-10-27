@@ -81,6 +81,10 @@ Mục tiêu của hệ thống là giúp **tự động hóa việc ra vào và 
 - **LED 7 đoạn** (hiển thị số xe hiện có)  
 - **Servo** (điều khiển barie cổng)  
 
+---
+
+## 📷 Video sản phẩm
+[![Xem video demo nhà xe tự động](docs/thumbnail.png)](https://drive.google.com/file/d/1G1F36kMGdYP7CZL8KHQnbg2_zZ5u2mTm/view)
 
 
 
