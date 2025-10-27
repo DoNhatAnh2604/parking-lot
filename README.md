@@ -22,8 +22,8 @@ Mục tiêu của hệ thống là giúp **tự động hóa việc ra vào và 
 
 ### 🔶 1. Đèn báo hiệu tình trạng bãi xe
 
-- **Xanh lá:** còn **3–4 chỗ trống**  
-- **Vàng:** còn **1–2 chỗ trống**  
+- **Xanh lá:** còn **(3–4 chỗ trống)**  
+- **Vàng:** còn **(1–2 chỗ trống)**  
 - **Đỏ:** **đầy (0 chỗ trống)**  
 
 💡 Khi người lái xe đi gần đến khu gửi xe, họ có thể **quan sát đèn thông báo** để biết trước tình trạng bãi xe mà không cần phải đi vào.
