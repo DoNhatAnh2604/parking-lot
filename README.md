@@ -5,8 +5,8 @@
 
 | Họ và tên | Phụ trách |
 |------------|------------|
-| **Huy** | Code main, Cảm biến IR, RFID, LED 7 đoạn, Quay video demo |
-| **Nhất Anh** | Làm mô hình, LCD, LED RGB, Viết README, hoàn thiện báo cáo |
+| **Bùi Minh Huy** | Code main, Cảm biến IR, RFID, LED 7 đoạn, Quay video demo |
+| **Đỗ Nhất Anh** | Làm mô hình, LCD, LED RGB, Viết README, hoàn thiện báo cáo |
 
 ---
 
@@ -84,7 +84,7 @@ Mục tiêu của hệ thống là giúp **tự động hóa việc ra vào và 
 ---
 
 ## 📷 Video sản phẩm
-[![Xem video demo nhà xe tự động](docs/thumbnail.png)](https://drive.google.com/file/d/1G1F36kMGdYP7CZL8KHQnbg2_zZ5u2mTm/view)
+[![Xem video demo nhà xe tự động]](https://drive.google.com/file/d/1G1F36kMGdYP7CZL8KHQnbg2_zZ5u2mTm/view)
 
 
 
