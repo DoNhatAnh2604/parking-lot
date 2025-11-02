@@ -73,7 +73,7 @@ Mục tiêu của hệ thống là giúp **tự động hóa việc ra vào và 
 
 ## ⚙️ Thành phần phần cứng chính
 
-- Vi điều khiển **STM32F103C8T6 (Bluepill)**  
+- Vi điều khiển **STM32F401cu6**  
 - Module **RFID RC522**  
 - Cảm biến **IR (Infrared Sensor)**  
 - Màn hình **LCD 16x2 / 20x4**  
